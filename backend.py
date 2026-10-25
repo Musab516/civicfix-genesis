@@ -221,6 +221,8 @@ async def upload_resolution(report_id:int,image:UploadFile=File(...),note:str=Fo
 _classifier=None
 @app.post('/api/classify')
 async def classify(image:UploadFile=File(...)):
+    if os.getenv('CIVICFIX_LOCAL_AI') != '1':
+        raise HTTPException(503, 'Server AI disabled; use the browser-based classifier.')
     global _classifier
     if image.content_type not in ('image/jpeg','image/png','image/webp'):raise HTTPException(400,'Invalid image type')
     data=await image.read(5*1024*1024+1)
