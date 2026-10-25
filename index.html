@@ -13,7 +13,17 @@ document.getElementById('reportForm').addEventListener('submit',async e=>{
  if(!category||!location||!description)return;
  const btn=e.target.querySelector('[type=submit]');btn.disabled=true;
  try{
- if(coords){const check=await fetch(`/api/duplicates?category=${encodeURIComponent(category)}&lat=${coords.lat}&lng=${coords.lng}`);if(check.ok){const matches=(await check.json()).matches;if(matches.length&&!confirm(`There are ${matches.length} similar open report(s) within 200 m. Submit anyway?`))return}}
+ const match=location.match(/^\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*$/);
+  if(match){
+    const lat=Number(match[1]),lng=Number(match[2]);
+    if(lat < -90 || lat > 90 || lng < -180 || lng > 180){
+      throw Error('Invalid latitude or longitude');
+    }
+    coords={lat,lng};
+  }else{
+    coords=null;
+  }
+  if(coords){const check=await fetch(`/api/duplicates?category=${encodeURIComponent(category)}&lat=${coords.lat}&lng=${coords.lng}`);if(check.ok){const matches=(await check.json()).matches;if(matches.length&&!confirm(`There are ${matches.length} similar open report(s) within 200 m. Submit anyway?`))return}}
  const fd=new FormData();fd.append('category',category);fd.append('location',location);fd.append('description',description);
  if(coords){fd.append('lat',coords.lat);fd.append('lng',coords.lng)}const file=document.getElementById('photo').files[0];if(file)fd.append('image',file);
  const response=await fetch('/api/reports',{method:'POST',body:fd});if(!response.ok){const d=await response.json();throw Error(typeof d.detail==='string'?d.detail:'Unable to save report')}
