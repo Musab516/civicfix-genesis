@@ -18,6 +18,19 @@
 
 ---
 
+## 🔑 Try the live demo
+
+**[Open CivicFix](https://civicfix-genesis.onrender.com)** and sign in with this dedicated **citizen demo account**:
+
+| Field | Demo credential |
+| --- | --- |
+| Email | `citizen1@pak.pk` |
+| Password | `citizen123` |
+
+Use this account to explore citizen reporting, AI category suggestions, the issue map and complaint tracking. This is a shared public demo account: **do not upload private photos, personal information or sensitive locations.** Administrator credentials are not published.
+
+---
+
 ## The problem
 
 Potholes, overflowing garbage, broken streetlights and damaged infrastructure affect everyday life. Reporting them can be slow, fragmented and difficult to track. Communities need a simple way to document issues, find existing reports and see whether something has been addressed.
