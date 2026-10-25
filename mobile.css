@@ -1,0 +1,32 @@
+/* CivicFix mobile usability layer — intentionally leaves desktop design unchanged. */
+html{scroll-padding-top:12px}body{overflow-x:hidden}button,a,input,select,textarea{touch-action:manipulation}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #60a5fa;outline-offset:2px}
+@media(max-width:700px){
+  :root{color-scheme:light}
+  body{padding-bottom:env(safe-area-inset-bottom)}
+  aside{height:auto;min-height:calc(68px + env(safe-area-inset-bottom));padding:7px 7px calc(7px + env(safe-area-inset-bottom));box-shadow:0 -5px 24px #07172b2a;max-width:100vw}
+  aside .nav{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:3px;overflow-x:auto;scrollbar-width:none}
+  aside .nav::-webkit-scrollbar{display:none}
+  aside .nav button{font-size:10px!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;text-align:center;padding:6px 2px!important;min-height:50px;min-width:0;line-height:1.2;white-space:normal}
+  aside .nav button span{display:block;font-size:19px!important;line-height:1.2}
+  main{margin:0 0 calc(76px + env(safe-area-inset-bottom));min-width:0}
+  header{min-height:66px;height:auto;padding:12px 14px;gap:8px;align-items:center}
+  .eyebrow{font-size:9px;letter-spacing:.7px}.heading{font-size:18px;line-height:1.3}
+  .headright{gap:6px;min-width:0}.headright .avatar{display:none}#accountButton{max-width:135px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;padding:10px 8px}
+  .content{padding:14px 12px 22px}
+  .hero{padding:22px 18px;gap:16px}.hero h2{font-size:21px}.hero p{font-size:13px}.hero .primary{width:100%;white-space:normal}
+  .stats{gap:10px;margin:15px 0}.stat{padding:14px 12px;min-width:0}.stat small{font-size:11px}.stat strong{font-size:24px;overflow-wrap:anywhere}
+  .dashboardgrid,.formgrid{grid-template-columns:minmax(0,1fr);gap:12px}.panelhead{padding:15px}
+  #map{height:290px}.legend{padding:10px 14px;gap:10px}
+  .sectionrow{align-items:flex-start;flex-direction:column;gap:12px;margin:17px 0 12px}.sectionrow h3{font-size:16px}.sectionrow .toolbar{width:100%}.toolbar select,.toolbar button{min-height:44px;flex:1;min-width:0}
+  .formpanel{padding:17px 14px}.field{margin-bottom:16px}.field input,.field select,.field textarea{font-size:16px;min-height:48px}.field textarea{min-height:110px}
+  #location{min-width:0;flex:1}#locate{min-height:48px;flex-shrink:0}
+  .drop{padding:20px 12px;min-height:142px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .submit{min-height:48px}#reportForm>.submit{width:100%}
+  .tip{padding:15px}.issue{padding:13px}.issueicon{width:38px;height:38px}
+  .tablewrap{overflow:visible}.reporttable,.reporttable tbody{display:block;width:100%}.reporttable thead{display:none}.reporttable tr{display:block;margin:0 0 12px;padding:13px 14px;border:1px solid var(--line);border-radius:12px;background:white}.reporttable td{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;min-width:0;text-align:right;padding:8px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.reporttable td:last-child{border:0}.reporttable td:first-child{display:block;text-align:left}.reporttable td:first-child .notice{text-align:left}.reporttable td:nth-child(2):before{content:'Location';font-weight:700;color:var(--muted)}.reporttable td:nth-child(3):before{content:'Priority';font-weight:700;color:var(--muted)}.reporttable td:nth-child(4):before{content:'Status';font-weight:700;color:var(--muted)}.reporttable td:nth-child(5):before{content:'Reported';font-weight:700;color:var(--muted)}.reporttable select{max-width:60%;min-height:40px}
+  #adminRows td:nth-child(4):before{content:'Votes'}#adminRows td:nth-child(5):before{content:'Status'}#adminRows td:nth-child(6):before{content:'Repair evidence'}#adminRows td:nth-child(6){display:flex;flex-wrap:wrap;justify-content:flex-end}
+  #authLayer{padding:12px;align-items:center}#authLayer .authcard{width:min(100%,440px);max-height:calc(100dvh - 24px);overflow:auto;padding:20px 16px}
+  .view{min-width:0}
+}
+@media(max-width:360px){.heading{font-size:16px}#accountButton{max-width:100px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat strong{font-size:21px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}

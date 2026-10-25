@@ -111,7 +111,7 @@ def distance(a,b,c,d):
     h=math.sin(dl/2)**2+math.cos(r1)*math.cos(r2)*math.sin(dn/2)**2
     return 6371000*2*math.asin(min(1,math.sqrt(h)))
 def public(row):
-    x=dict(row);x.pop('image',None);x.pop('image_type',None);x['has_image']=bool(row['image']);return x
+    x=dict(row);x.pop('image',None);x.pop('image_type',None);x.pop('user_id',None);x['reporter']='Anonymous resident';x['has_image']=bool(row['image']);return x
 
 def severity(category,description,votes=0):
     # Explainable rule-based triage, not a trained severity model.
